@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spatial History of New Hampshire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
+
+    <!-- Google Fonts: Cinzel + EB Garamond -->
+    https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
+
+    <style>
+        body {
+            margin: 0;
+            background: #f7f7f7;
+            font-family: 'EB Garamond', serif;
+            color: #222;
+            font-size: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* HEADER / HERO SECTION */
+        .hero {
+            height: 60vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/New_Hampshire_relief_map.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            background: rgba(0,0,0,0.45);
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-top: 12px;
+            max-width: 700px;
+        }
+
+        /* NAVIGATION BOXES */
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            transition: transform .2s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #ddd;
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .module-card p {
+            margin-bottom: 0;
+        }
+
+        /* MAP SECTION */
+        #map {
+            height: 420px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #222;
+            color: white;
+            margin-top: 30px;
+            font-family: 'EB Garamond', serif;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-overlay">
+        <h1>Spatial History of New Hampshire</h1>
+        <p>
+            A digital exploration of the Granite State’s past using historical cartography,
+            GIS data, and spatial storytelling.
+        </p>
+    </div>
+</div>
+
+<!-- MODULE GRID -->
+<section class="modules">
+    modules/settlement.html
+        <h3>Settlement & Colonial Boundaries</h3>
+        <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
+    </a>
+
+    modules/indigenous.html
+        <h3>Indigenous Geographies</h3>
+        <p>Native land, mobility, early contact history and spatial patterns.</p>
+    </a>
+
+    modules/demography.html
+        <h3>Demography & Migration</h3>
+        <p>Census data, settlement clusters, and changing population landscapes.</p>
+    </a>
+
+    modules/economy.html
+        <h3>Industry & Economy</h3>
+        <p>Waterpower, mills, river corridors, and industrial development.</p>
+    </a>
+
+    modules/environment.html
+        <h3>Environmental Change</h3>
+        <p>Reforestation, land use change, ecology and conservation history.</p>
+    </a>
+</section>
+
+<!-- INTERACTIVE MAP -->
+<div id="map"></div>
+
+<!-- LEAFLET JS -->
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
+
+<script>
+    // Basic Leaflet Map
+    const map = L.map('map').setView([44.0, -71.5], 7);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add a popup marker
+    L.marker([43.1939, -71.5724]).addTo(map)
+        .bindPopup("<b>New Hampshire</b><br>Spatial History Project")
+        .openPopup();
+</script>
+
+<footer>
+    Spatial History of New Hampshire • Created by Simon Dominik Franzen
+</footer>
+
+</body>
+</html>
