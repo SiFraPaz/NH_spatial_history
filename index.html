@@ -5,11 +5,11 @@
     <title>Spatial History of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts (correct!!) -->
+    <!-- CORRECT GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Leaflet CSS (correct!!) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- CORRECT LEAFLET CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
     <style>
         body {
@@ -55,7 +55,7 @@
             padding: 20px;
         }
 
-        /* HOVER CREDITS */
+        /* Hover credit bubble */
         .credit-bubble {
             position: absolute;
             bottom: 12px;
@@ -66,12 +66,13 @@
             border-radius: 6px;
             font-size: 0.8rem;
             opacity: 0;
-            transition: opacity 0.35s ease;
+            transition: opacity .3s ease;
+        }
+        .hero:hover .credit-bubble {
+            opacity: 1;
         }
 
-        .hero:hover .credit-bubble { opacity: 1; }
-
-        /* INTRO TEXT */
+        /* INTRO */
         .intro {
             max-width: 1000px;
             margin: 40px auto 20px;
@@ -81,7 +82,7 @@
             text-align: center;
         }
 
-        /* MODULE GRID */
+        /* MODULE CARDS */
         .modules {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -99,9 +100,8 @@
             border: 1px solid #ddd;
             text-decoration: none;
             color: inherit;
-            transition: transform .2s ease;
+            transition: transform .15s ease;
         }
-
         .module-card:hover {
             transform: translateY(-5px);
         }
@@ -112,7 +112,6 @@
             width: 100%;
             margin-top: 30px;
             border: 2px solid #333;
-            box-sizing: border-box;
         }
 
         /* FOOTER */
@@ -122,13 +121,12 @@
             background: #222;
             color: white;
             margin-top: 30px;
-            font-size: 1rem;
         }
 
         footer a {
             color: #bbb;
+            margin-left: 8px;
             text-decoration: none;
-            margin-left: 10px;
         }
     </style>
 </head>
@@ -137,10 +135,10 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img class="flag" src="images/Flag_of_New_Hampshire.svg.png" alt="New Hampshire Flag">
+    images/Flag_of_New_Hampshire.svg.png
 
     <div class="credit-bubble">
-        Image: Lake Winnipesaukee and the Ossipee Mountains — CC BY-SA 4.0<br>
+        Background: Lake Winnipesaukee & Ossipee Mountains — CC BY-SA 4.0<br>
         Flag of New Hampshire — Public Domain
     </div>
 
@@ -150,48 +148,36 @@
     </div>
 </div>
 
-<!-- INTRO TEXT -->
+<!-- INTRO -->
 <div class="intro">
     Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes.  
     This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
-
     <br><br>
-
-    <strong>Spatial history</strong> examines how people interact with space — how borders, landscapes, mobility, settlement patterns, and environments shape human experience.  
-    We navigate space every day: through towns, along roads, across regions, and through the geographies that define our lives.
-
+    <strong>Spatial history</strong> examines how people interact with space — how borders, landscapes, mobility, settlement patterns, and environments shape human experience.
     <br><br>
-
-    This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.  
-    Each module focuses on a different aspect of the state’s historical geography.
+    This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.
 </div>
 
 <!-- MODULE GRID -->
 <section class="modules">
 
-    modules/settlement.html
+    <a class="module-card" href="modules/settlement.html">
         <h3>Settlement & Colonial Boundaries</h3>
         <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
     </a>
 
-    modules/indigenous.html
+    <a class="module-card" href="modules/indigenous.html">
         <h3>Indigenous Geographies</h3>
-        <p>Native land, mobility, early contact history and spatial patterns.</p>
+        <p>Native land, mobility, and early contact history.</p>
     </a>
 
-    modules/demography.html
+    <a class="module-card" href="modules/demography.html">
         <h3>Demography & Migration</h3>
-        <p>Population landscapes, settlement clusters, and long‑term demographic change.</p>
+        <p>Population patterns, settlement clusters, long‑term trends.</p>
     </a>
 
-    modules/economy.html
-        <h3>Industry & Economy</h3>
-        <p>The role of rivers, mills, and industrial corridors in shaping the state.</p>
-    </a>
-
-    modules/environment.html
-        <h3>Environmental Change</h3>
-        <p>Reforestation, land‑use change, ecology, and conservation history.</p>
+    <a class="module-card" href>Environmental Change</h3>
+        <p>Reforestation, land‑use transitions, conservation history.</p>
     </a>
 
 </section>
@@ -203,17 +189,15 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-    const map = L.map('map', {
-        zoomControl: true,
-        scrollWheelZoom: true
-    }).setView([44.0, -71.5], 7);
+    const map = L.map('map').setView([44.0, -71.5], 7);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    setTimeout(() => map.invalidateSize(), 400);
+    // Fix for initial render
+    setTimeout(() => map.invalidateSize(), 350);
 
     L.marker([43.1939, -71.5724])
         .addTo(map)
@@ -221,7 +205,7 @@
 </script>
 
 <footer>
-    © Simon D. Franzen (2026)  
+    © Simon D. Franzen (2026) — 
     imprint.htmlImprint</a>
 </footer>
 
