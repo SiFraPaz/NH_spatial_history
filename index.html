@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Fonts -->
-    https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap">
 
     <!-- Leaflet CSS -->
-    https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
     <style>
         body {
@@ -25,7 +25,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* HEADER / HERO SECTION */
+        /* HERO SECTION */
         .hero {
             height: 60vh;
             background-image: url('images/Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg');
@@ -48,13 +48,12 @@
         }
 
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: 3.3rem;
             margin: 0;
-            font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             margin-top: 12px;
             max-width: 700px;
         }
@@ -64,9 +63,9 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            width: 120px;
+            width: 170px;  /* enlarged */
             border: 2px solid white;
-            box-shadow: 0 0 8px rgba(0,0,0,0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
         }
 
         /* MODULE GRID */
@@ -96,9 +95,10 @@
 
         /* MAP */
         #map {
-            height: 420px;
+            height: 430px;
             width: 100%;
             margin-top: 30px;
+            border: 2px solid #333;
         }
 
         footer {
@@ -112,8 +112,8 @@
         .attribution {
             text-align: center;
             font-size: 0.85rem;
-            margin-top: 8px;
             color: #555;
+            margin-top: 8px;
         }
     </style>
 </head>
@@ -122,7 +122,7 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img src="images/Flag_of_New_Hampshire.svg.png" class="flag" alt="Flag of New Hampshire">
+    <img src="images/Flag_of_New_Hampshire.svg.png" class="flag">
     <div class="hero-overlay">
         <h1>Spatial History of New Hampshire</h1>
         <p>A digital exploration of the Granite State’s past through cartography, GIS, and place‑based storytelling.</p>
@@ -130,57 +130,60 @@
 </div>
 
 <div class="attribution">
-    Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
-    https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
-    Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
-</div>
+    Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons (CC BY‑SA 4.0)<br>
+    Flag of New Hampshire:">
 
-<!-- MODULE GRID -->
-<section class="modules">
-
-    <a href="modules/settlement.html" class="module-card">
+    modules/settlement.html
         <h3>Settlement & Colonial Boundaries</h3>
         <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
     </a>
 
-    <a href="modules/indigenous.html" class="module-card">
+    modules/indigenous.html
         <h3>Indigenous Geographies</h3>
         <p>Native land, mobility, early contact history and spatial patterns.</p>
     </a>
 
-    <a href="modules/demography.html" class="module-card">
+    modules/demography.html
         <h3>Demography & Migration</h3>
         <p>Population landscapes, settlement clusters, and long‑term demographic change.</p>
     </a>
 
-    <a href="modules/economy.html" class="module-card">
+    <a class="module-card" href="modules/economy.html">
         <h3>Industry & Economy</h3>
         <p>The role of rivers, mills, and industrial corridors in shaping the state.</p>
     </a>
 
-    <a href="modules/environment.html" class="module-card">
+    <a class="module-card" href="modules/environment.html">
         <h3>Environmental Change</h3>
         <p>Reforestation, land‑use change, ecology, and conservation history.</p>
     </a>
 
 </section>
 
+<!-- MAP -->
 <div id="map"></div>
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-    const map = L.map('map').setView([44.0, -71.5], 7);
+    const map = L.map('map', {
+        zoomControl: true,
+        scrollWheelZoom: true
+    }).setView([44.0, -71.5], 7);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
+        maxZoom: 18,
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 300);
+
     L.marker([43.1939, -71.5724])
         .addTo(map)
-        .bindPopup("<b>New Hampshire</b><br>Spatial History Project");
+        .bindPopup("New Hampshire — Spatial History Project");
 </script>
 
 <footer>
@@ -189,3 +192,4 @@
 
 </body>
 </html>
+``
