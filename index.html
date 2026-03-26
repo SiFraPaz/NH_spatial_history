@@ -15,19 +15,10 @@
             font-family: 'EB Garamond', serif;
             color: #222;
             font-size: 20px;
-            transition: background 0.3s, color 0.3s;
         }
         h1, h2, h3 {
             font-family: 'Cinzel', serif;
             letter-spacing: 0.5px;
-        }
-        /* DARK MODE */
-        body.dark-mode {
-            background: #222;
-            color: #f7f7f7;
-        }
-        body.dark-mode a {
-            color: #00bcd4;
         }
         /* NAVIGATION */
         nav {
@@ -155,22 +146,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-        /* BUTTON FOR DARK MODE */
-        #dark-mode-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #222;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-        }
-        #dark-mode-toggle:hover {
-            background: #444;
-        }
     </style>
 </head>
 <body>
@@ -231,14 +206,6 @@
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // Dark Mode Toggle
-    const toggleDarkMode = document.createElement('button');
-    toggleDarkMode.id = 'dark-mode-toggle';
-    toggleDarkMode.textContent = 'Toggle Dark Mode';
-    document.body.appendChild(toggleDarkMode);
-    toggleDarkMode.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    });
     // Search Functionality
     const searchInput = document.querySelector('#search');
     const modules = document.querySelectorAll('.module-card');
