@@ -5,11 +5,11 @@
     <title>Spatial History of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Fonts -->
+    https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
+
     <!-- Leaflet CSS -->
     https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
-
-    <!-- Google Fonts: Cinzel + EB Garamond -->
-    https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
 
     <style>
         body {
@@ -28,7 +28,7 @@
         /* HEADER / HERO SECTION */
         .hero {
             height: 60vh;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/New_Hampshire_relief_map.png');
+            background-image: url('Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -59,7 +59,17 @@
             max-width: 700px;
         }
 
-        /* NAVIGATION BOXES */
+        /* FLAG (top right corner) */
+        .flag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 120px;
+            border: 2px solid white;
+            box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        }
+
+        /* MODULE GRID */
         .modules {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -84,11 +94,6 @@
             transform: translateY(-4px);
         }
 
-        .module-card p {
-            margin-bottom: 0;
-        }
-
-        /* MAP SECTION */
         #map {
             height: 420px;
             width: 100%;
@@ -101,7 +106,14 @@
             background: #222;
             color: white;
             margin-top: 30px;
-            font-family: 'EB Garamond', serif;
+        }
+
+        .attribution {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 6px;
+            margin-bottom: 12px;
+            color: #555;
         }
     </style>
 </head>
@@ -110,51 +122,54 @@
 
 <!-- HERO -->
 <div class="hero">
-    <div class="hero-overlay">
-        <h1>Spatial History of New Hampshire</h1>
-        <p>
-            A digital exploration of the Granite State’s past using historical cartography,
-            GIS data, and spatial storytelling.
-        </p>
+    <img src="Flag_of_New_Hampshire.svg.png" alt="Flag of New Hampshire" class="flagl History of New Hampshire</h1>
+        <p>A digital exploration of the Granite State’s past using historical cartography,
+           GIS data, and spatial storytelling.</p>
     </div>
+</div>
+
+<div class="attribution">
+    Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons<br>
+    https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg — Flag of New Hampshire: Public Domain<br>
+    <a href="https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg" target="_blank">Source</a>
 </div>
 
 <!-- MODULE GRID -->
 <section class="modules">
-    modules/settlement.html
+
+    <a href="modules/settlement.html" class="module-card">
         <h3>Settlement & Colonial Boundaries</h3>
-        <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
+        <p>How colonial land grants and early land divisions shaped New Hampshire.</p>
     </a>
 
-    modules/indigenous.html
+    <a href="modules/indigenous.html" class="module-card">
         <h3>Indigenous Geographies</h3>
         <p>Native land, mobility, early contact history and spatial patterns.</p>
     </a>
 
-    modules/demography.html
+    <a href="modules/demography.html" class="module-card">
         <h3>Demography & Migration</h3>
         <p>Census data, settlement clusters, and changing population landscapes.</p>
     </a>
 
-    modules/economy.html
+    <a href="modules/economy.html" class="module-card">
         <h3>Industry & Economy</h3>
         <p>Waterpower, mills, river corridors, and industrial development.</p>
     </a>
 
-    modules/environment.html
+    <a href="modules/environment.html" class="module-card">
         <h3>Environmental Change</h3>
         <p>Reforestation, land use change, ecology and conservation history.</p>
     </a>
+
 </section>
 
-<!-- INTERACTIVE MAP -->
 <div id="map"></div>
 
-<!-- LEAFLET JS -->
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-    // Basic Leaflet Map
     const map = L.map('map').setView([44.0, -71.5], 7);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -162,10 +177,9 @@ https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Add a popup marker
-    L.marker([43.1939, -71.5724]).addTo(map)
-        .bindPopup("<b>New Hampshire</b><br>Spatial History Project")
-        .openPopup();
+    L.marker([43.1939, -71.5724])
+        .addTo(map)
+        .bindPopup("<b>New Hampshire</b><br>Spatial History Project");
 </script>
 
 <footer>
@@ -173,4 +187,3 @@ https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
 </footer>
 
 </body>
-</html>
