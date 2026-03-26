@@ -5,10 +5,10 @@
     <title>Spatial History of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CORRECT GOOGLE FONT LINK TAG -->
+    <!-- REAL GOOGLE FONT TAG -->
     https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
 
-    <!-- CORRECT LEAFLET CSS LINK TAG -->
+    <!-- REAL LEAFLET CSS TAG -->
     https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
 
     <style>
@@ -43,16 +43,15 @@
         }
 
         .hero-overlay {
-            background: rgba(0,0,0,0.45);
-            inset: 0;
             position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             flex-direction: column;
             color: white;
             text-align: center;
-            padding: 20px;
         }
 
         .credit-bubble {
@@ -61,17 +60,18 @@
             left: 15px;
             background: rgba(0,0,0,0.65);
             padding: 6px 12px;
-            border-radius: 6px;
             font-size: 0.8rem;
             color: white;
+            border-radius: 6px;
             opacity: 0;
-            transition: opacity .3s;
+            transition: opacity .3s ease;
         }
 
         .hero:hover .credit-bubble {
             opacity: 1;
         }
 
+        /* INTRO */
         .intro {
             max-width: 1000px;
             margin: 40px auto;
@@ -81,6 +81,7 @@
             font-size: 1.15rem;
         }
 
+        /* MODULES */
         .modules {
             max-width: 1200px;
             margin: auto;
@@ -93,31 +94,33 @@
         .module-card {
             display: block;
             background: white;
-            border-radius: 10px;
             padding: 25px;
+            border-radius: 10px;
             border: 1px solid #ddd;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            transition: transform .2s ease;
             text-decoration: none;
             color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: transform .2s ease;
         }
 
         .module-card:hover {
             transform: translateY(-5px);
         }
 
+        /* MAP */
         #map {
             height: 430px;
             width: 100%;
             border: 2px solid #333;
         }
 
+        /* FOOTER */
         footer {
+            text-align: center;
             background: #222;
             color: white;
             padding: 25px;
             margin-top: 30px;
-            text-align: center;
         }
 
         footer a {
@@ -129,18 +132,22 @@
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
-    images/Flag_of_New_Hampshire.svg.png
+    <img src="images/Flag_of_New_Hampshire.svg.png" class="flag" alt="Flag of New Hampshire">
+
     <div class="credit-bubble">
         Background: Lake Winnipesaukee & Ossipee Mountains — CC BY-SA 4.0<br>
         Flag of New Hampshire — Public Domain
     </div>
+
     <div class="hero-overlay">
         <h1>Spatial History of New Hampshire</h1>
         <p>A digital exploration of the Granite State’s past.</p>
     </div>
 </div>
 
+<!-- INTRO -->
 <div class="intro">
     Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes. This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
     <br><br>
@@ -149,6 +156,7 @@
     This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.
 </div>
 
+<!-- MODULE GRID -->
 <section class="modules">
 
     modules/settlement.html
@@ -163,12 +171,12 @@
 
     modules/demography.html
         <h3>Demography & Migration</h3>
-        <p>Population patterns and long-term demographic change.</p>
+        <p>Population patterns and long-term change.</p>
     </a>
 
     modules/economy.html
         <h3>Industry & Economy</h3>
-        <p>Industrial development, rivers, mills, and regional transformation.</p>
+        <p>Industrial development and regional transformation.</p>
     </a>
 
     modules/environment.html
@@ -178,10 +186,11 @@
 
 </section>
 
+<!-- MAP -->
 <div id="map"></div>
 
-<!-- LEAFLET JS -->
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
+<!-- REAL LEAFLET JS TAG -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
     const map = L.map('map').setView([44.0, -71.5], 7);
