@@ -5,10 +5,10 @@
     <title>Spatial History of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- GOOGLE FONTS -->
+    <!-- Google Fonts (correct embed!) -->
     https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
 
-    <!-- LEAFLET CSS -->
+    <!-- Leaflet CSS (correct embed!) -->
     https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
 
     <style>
@@ -16,20 +16,20 @@
             margin: 0;
             background: #f7f7f7;
             font-family: 'EB Garamond', serif;
-            font-size: 20px;
             color: #222;
+            font-size: 20px;
         }
 
         h1, h2, h3 {
             font-family: 'Cinzel', serif;
         }
 
-        /* HERO */
+        /* HERO SECTION */
         .hero {
             height: 60vh;
             background-image: url('images/Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg');
-            background-position: center;
             background-size: cover;
+            background-position: center;
             position: relative;
         }
 
@@ -39,70 +39,67 @@
             right: 20px;
             width: 190px;
             border: 2px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
         }
 
         .hero-overlay {
             background: rgba(0,0,0,0.45);
-            inset: 0;
             position: absolute;
+            inset: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
             text-align: center;
             padding: 20px;
         }
 
-        /* CREDIT HOVER BUBBLE */
+        /* CREDIT HOVER EFFECT */
         .credit-bubble {
             position: absolute;
-            bottom: 15px;
-            left: 15px;
+            bottom: 12px;
+            left: 12px;
             background: rgba(0,0,0,0.65);
-            padding: 6px 12px;
+            padding: 6px 10px;
+            color: #fff;
             border-radius: 6px;
             font-size: 0.8rem;
-            color: white;
             opacity: 0;
-            transition: opacity .3s;
+            transition: opacity 0.35s ease;
         }
 
-        .hero:hover .credit-bubble {
-            opacity: 1;
-        }
+        .hero:hover .credit-bubble { opacity: 1; }
 
-        /* INTRO */
+        /* INTRO TEXT */
         .intro {
             max-width: 1000px;
-            margin: 40px auto;
+            margin: 40px auto 20px;
             padding: 0 20px;
-            text-align: center;
-            line-height: 1.6;
             font-size: 1.15rem;
+            line-height: 1.6;
+            text-align: center;
         }
 
-        /* MODULES */
+        /* MODULE GRID */
         .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            padding: 40px;
             max-width: 1200px;
             margin: auto;
-            padding: 40px;
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
 
         .module-card {
-            display: block;
             background: white;
             border-radius: 10px;
             padding: 25px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
             border: 1px solid #ddd;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            transition: transform .2s ease;
             text-decoration: none;
             color: inherit;
+            transition: transform .2s ease;
         }
 
         .module-card:hover {
@@ -113,22 +110,27 @@
         #map {
             height: 430px;
             width: 100%;
+            margin-top: 30px;
             border: 2px solid #333;
+            box-sizing: border-box;
         }
 
         /* FOOTER */
         footer {
+            text-align: center;
+            padding: 25px;
             background: #222;
             color: white;
-            padding: 25px;
             margin-top: 30px;
-            text-align: center;
+            font-size: 1rem;
         }
 
         footer a {
-            color: #ccc;
+            color: #bbb;
             text-decoration: none;
+            margin-left: 10px;
         }
+
     </style>
 </head>
 
@@ -136,11 +138,10 @@
 
 <!-- HERO -->
 <div class="hero">
-
     images/Flag_of_New_Hampshire.svg.png
 
     <div class="credit-bubble">
-        Background: Lake Winnipesaukee & Ossipee Mountains — CC BY-SA 4.0<br>
+        Image: Lake Winnipesaukee and the Ossipee Mountains — CC BY-SA 4.0<br>
         Flag of New Hampshire — Public Domain
     </div>
 
@@ -150,13 +151,20 @@
     </div>
 </div>
 
-<!-- INTRO -->
+<!-- INTRO TEXT -->
 <div class="intro">
-    Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes. This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
+    Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes.  
+    This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
+
     <br><br>
-    <strong>Spatial history</strong> examines how people interact with space — how borders, landscapes, mobility, settlement patterns, and environments shape human experience.
+
+    <strong>Spatial history</strong> examines how people interact with space — how borders, landscapes, mobility, settlement patterns, and environments shape human experience.  
+    We navigate space every day: through towns, along roads, across regions, and through the geographies that define our lives.
+
     <br><br>
-    This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.
+
+    This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.  
+    Each module focuses on a different aspect of the state’s historical geography.
 </div>
 
 <!-- MODULE GRID -->
@@ -169,22 +177,22 @@
 
     modules/indigenous.html
         <h3>Indigenous Geographies</h3>
-        <p>Native land, mobility, and early contact history.</p>
+        <p>Native land, mobility, early contact history and spatial patterns.</p>
     </a>
 
     modules/demography.html
         <h3>Demography & Migration</h3>
-        <p>Population patterns and long-term demographic change.</p>
+        <p>Population landscapes, settlement clusters, and long‑term demographic change.</p>
     </a>
 
     modules/economy.html
         <h3>Industry & Economy</h3>
-        <p>Industrial development, rivers, mills, and regional transformation.</p>
+        <p>The role of rivers, mills, and industrial corridors in shaping the state.</p>
     </a>
 
     modules/environment.html
         <h3>Environmental Change</h3>
-        <p>Reforestation, landscape change, and conservation history.</p>
+        <p>Reforestation, land‑use change, ecology, and conservation history.</p>
     </a>
 
 </section>
@@ -192,28 +200,30 @@
 <!-- MAP -->
 <div id="map"></div>
 
-<!-- LEAFLET JS -->
+<!-- Leaflet JS -->
 https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
 
 <script>
-    const map = L.map('map').setView([44.0, -71.5], 7);
+    const map = L.map('map', {
+        zoomControl: true,
+        scrollWheelZoom: true
+    }).setView([44.0, -71.5], 7);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    setTimeout(() => map.invalidateSize(), 350);
+    setTimeout(() => map.invalidateSize(), 400);
 
     L.marker([43.1939, -71.5724])
         .addTo(map)
         .bindPopup("New Hampshire — Spatial History Project");
 </script>
 
-<!-- FOOTER -->
 <footer>
-    © Simon D. Franzen (2026) — 
-    imprint.html">Imprint</a>
+    Spatial History of New Hampshire • Created by Simon Dominik Franzen  
+    imprint.htmlImprint</a>
 </footer>
 
 </body>
