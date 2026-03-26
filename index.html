@@ -49,13 +49,24 @@
             font-size: 1.3rem;
             margin-top: 12px;
             max-width: 700px;
+            line-height: 1.6;
+        }
+        .hero p br {
+            display: none; /* Standardmäßig Zeilenumbruch ausblenden */
+        }
+        .hero p:after {
+            content: " ";
+            display: block;
+        }
+        .hero p span {
+            display: block;
         }
         /* FLAG */
         .flag {
             position: absolute;
             top: 15px;
             right: 15px;
-            width: 150px; /* Vergrößerte Flagge */
+            width: 180px; /* Noch größere Flagge */
             border: 2px solid white;
             box-shadow: 0 0 8px rgba(0,0,0,0.3);
         }
@@ -105,25 +116,27 @@
         .intro {
             max-width: 800px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 0;
             font-size: 1.1rem;
             line-height: 1.8;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            text-align: center;
         }
         .intro strong {
             font-weight: 600;
         }
         /* IMAGE ATTRIBUTION ON HOVER */
         .attribution {
-            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
             font-size: 0.85rem;
-            margin-top: 8px;
-            color: #555;
             display: none; /* Standardmäßig ausgeblendet */
         }
-        .hero:hover + .attribution {
+        .hero:hover .attribution {
             display: block; /* Wird angezeigt, wenn man über das Bild fährt */
         }
     </style>
@@ -134,13 +147,16 @@
     <img src="images/Flag_of_New_Hampshire.svg.png" alt="Flag of New Hampshire" class="flag">
     <div class="hero-overlay">
         <h1>Spatial History of New Hampshire</h1>
-        <p>A digital exploration of the Granite State’s past through cartography, GIS, and place‑based storytelling.</p>
+        <p>
+            A digital exploration of the Granite State’s past<br>
+            <span>through cartography, GIS, and place‑based storytelling.</span>
+        </p>
+        <div class="attribution">
+            Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
+            https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
+            Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
+        </div>
     </div>
-</div>
-<div class="attribution">
-    Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
-    https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
-    Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
 </div>
 <!-- INTRO SECTION -->
 <div class="intro">
