@@ -5,10 +5,10 @@
     <title>Spatial History of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- REAL GOOGLE FONT TAG -->
+    <!-- GOOGLE FONTS -->
     https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
 
-    <!-- REAL LEAFLET CSS TAG -->
+    <!-- LEAFLET CSS -->
     https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
 
     <style>
@@ -43,28 +43,30 @@
         }
 
         .hero-overlay {
-            position: absolute;
-            inset: 0;
             background: rgba(0,0,0,0.45);
+            inset: 0;
+            position: absolute;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             flex-direction: column;
             color: white;
             text-align: center;
+            padding: 20px;
         }
 
+        /* CREDIT HOVER BUBBLE */
         .credit-bubble {
             position: absolute;
             bottom: 15px;
             left: 15px;
             background: rgba(0,0,0,0.65);
             padding: 6px 12px;
+            border-radius: 6px;
             font-size: 0.8rem;
             color: white;
-            border-radius: 6px;
             opacity: 0;
-            transition: opacity .3s ease;
+            transition: opacity .3s;
         }
 
         .hero:hover .credit-bubble {
@@ -94,13 +96,13 @@
         .module-card {
             display: block;
             background: white;
-            padding: 25px;
             border-radius: 10px;
+            padding: 25px;
             border: 1px solid #ddd;
-            text-decoration: none;
-            color: inherit;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             transition: transform .2s ease;
+            text-decoration: none;
+            color: inherit;
         }
 
         .module-card:hover {
@@ -116,11 +118,11 @@
 
         /* FOOTER */
         footer {
-            text-align: center;
             background: #222;
             color: white;
             padding: 25px;
             margin-top: 30px;
+            text-align: center;
         }
 
         footer a {
@@ -134,7 +136,8 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img src="images/Flag_of_New_Hampshire.svg.png" class="flag" alt="Flag of New Hampshire">
+
+    images/Flag_of_New_Hampshire.svg.png
 
     <div class="credit-bubble">
         Background: Lake Winnipesaukee & Ossipee Mountains — CC BY-SA 4.0<br>
@@ -171,12 +174,12 @@
 
     modules/demography.html
         <h3>Demography & Migration</h3>
-        <p>Population patterns and long-term change.</p>
+        <p>Population patterns and long-term demographic change.</p>
     </a>
 
     modules/economy.html
         <h3>Industry & Economy</h3>
-        <p>Industrial development and regional transformation.</p>
+        <p>Industrial development, rivers, mills, and regional transformation.</p>
     </a>
 
     modules/environment.html
@@ -189,8 +192,8 @@
 <!-- MAP -->
 <div id="map"></div>
 
-<!-- REAL LEAFLET JS TAG -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- LEAFLET JS -->
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
 
 <script>
     const map = L.map('map').setView([44.0, -71.5], 7);
@@ -207,6 +210,7 @@
         .bindPopup("New Hampshire — Spatial History Project");
 </script>
 
+<!-- FOOTER -->
 <footer>
     © Simon D. Franzen (2026) — 
     imprint.html">Imprint</a>
