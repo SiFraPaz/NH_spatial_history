@@ -5,10 +5,10 @@
     <title>Spatial History of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (correct embed!) -->
     https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
 
-    <!-- Leaflet CSS -->
+    <!-- Leaflet CSS (correct embed!) -->
     https://unpkg.com/leaflet@1.9.4/dist/leaflet.css
 
     <style>
@@ -55,7 +55,7 @@
             padding: 20px;
         }
 
-        /* HOVER CREDITS */
+        /* CREDIT HOVER EFFECT */
         .credit-bubble {
             position: absolute;
             bottom: 12px;
@@ -66,7 +66,7 @@
             border-radius: 6px;
             font-size: 0.8rem;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.35s ease;
         }
 
         .hero:hover .credit-bubble { opacity: 1; }
@@ -112,6 +112,7 @@
             width: 100%;
             margin-top: 30px;
             border: 2px solid #333;
+            box-sizing: border-box;
         }
 
         /* FOOTER */
@@ -200,7 +201,7 @@
 <div id="map"></div>
 
 <!-- Leaflet JS -->
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js
+https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
 
 <script>
     const map = L.map('map', {
@@ -213,7 +214,7 @@ https://unpkg.com/leaflet@1.9.4/dist/leaflet.js
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    setTimeout(() => map.invalidateSize(), 300);
+    setTimeout(() => map.invalidateSize(), 400);
 
     L.marker([43.1939, -71.5724])
         .addTo(map)
