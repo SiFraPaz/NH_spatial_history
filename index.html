@@ -55,7 +55,7 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            width: 120px;
+            width: 150px; /* Vergrößerte Flagge */
             border: 2px solid white;
             box-shadow: 0 0 8px rgba(0,0,0,0.3);
         }
@@ -94,11 +94,37 @@
             color: white;
             margin-top: 30px;
         }
+        footer a {
+            color: #00bcd4;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /* INTRO SECTION */
+        .intro {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        .intro strong {
+            font-weight: 600;
+        }
+        /* IMAGE ATTRIBUTION ON HOVER */
         .attribution {
             text-align: center;
             font-size: 0.85rem;
             margin-top: 8px;
             color: #555;
+            display: none; /* Standardmäßig ausgeblendet */
+        }
+        .hero:hover + .attribution {
+            display: block; /* Wird angezeigt, wenn man über das Bild fährt */
         }
     </style>
 </head>
@@ -115,6 +141,17 @@
     Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
     https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
     Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
+</div>
+<!-- INTRO SECTION -->
+<div class="intro">
+    Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes.  
+    This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
+    <br><br>
+    <strong>Spatial history</strong> examines how people interact with space — how borders, landscapes, mobility, settlement patterns, and environments shape human experience.  
+    We navigate space every day: through towns, along roads, across regions, and through the geographies that define our lives.
+    <br><br>
+    This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.  
+    Each module focuses on a different aspect of the state’s historical geography.
 </div>
 <!-- MODULE GRID -->
 <section class="modules">
@@ -153,7 +190,9 @@
         .bindPopup("<b>New Hampshire</b><br>Spatial History Project");
 </script>
 <footer>
-    Spatial History of New Hampshire • Created by Simon Dominik Franzen
+    Spatial History of New Hampshire • Created by Simon Dominik Franzen  
+    <br>
+    <a href="impressum.html">Impressum</a>
 </footer>
 </body>
 </html>
