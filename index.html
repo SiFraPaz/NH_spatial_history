@@ -87,6 +87,33 @@
             border: 2px solid white;
             box-shadow: 0 0 8px rgba(0,0,0,0.3);
         }
+        /* IMAGE ATTRIBUTION */
+        .attribution {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            display: none; /* Standardmäßig ausgeblendet */
+        }
+        .hero:hover .attribution {
+            display: block; /* Wird angezeigt, wenn man über das Bild fährt */
+        }
+        /* INTRO SECTION */
+        .intro {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .intro strong {
+            font-weight: 600;
+        }
         /* MODULE GRID */
         .modules {
             display: grid;
@@ -164,6 +191,11 @@
     <div class="hero-overlay">
         <h1>Spatial History of New Hampshire</h1>
         <p>A digital exploration of the Granite State’s past<br>through cartography, GIS, and place‑based storytelling.</p>
+        <div class="attribution">
+            Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
+            https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
+            Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
+        </div>
     </div>
 </div>
 <!-- INTRO SECTION -->
@@ -227,14 +259,11 @@
         });
     });
     // Leaflet Map
-    const map = L.map('map').setView([44.0, -71.5], 7);
+    const map = L.map('map').setView([44.0, -71.5], 7); // Fokus auf ganz New Hampshire
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
-    L.marker([43.1939, -71.5724])
-        .addTo(map)
-        .bindPopup("<b>New Hampshire</b><br>Spatial History Project");
 </script>
 <footer>
     Spatial History of New Hampshire • Created by Simon Dominik Franzen  
