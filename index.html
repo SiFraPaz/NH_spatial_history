@@ -15,12 +15,48 @@
             font-family: 'EB Garamond', serif;
             color: #222;
             font-size: 20px;
+            transition: background 0.3s, color 0.3s;
         }
         h1, h2, h3 {
             font-family: 'Cinzel', serif;
             letter-spacing: 0.5px;
         }
-        /* HEADER / HERO SECTION */
+        /* DARK MODE */
+        body.dark-mode {
+            background: #222;
+            color: #f7f7f7;
+        }
+        body.dark-mode a {
+            color: #00bcd4;
+        }
+        /* NAVIGATION */
+        nav {
+            background: #222;
+            color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        /* HERO SECTION */
         .hero {
             height: 60vh;
             background-image: url('images/Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg');
@@ -51,22 +87,12 @@
             max-width: 700px;
             line-height: 1.6;
         }
-        .hero p br {
-            display: none; /* Standardmäßig Zeilenumbruch ausblenden */
-        }
-        .hero p:after {
-            content: " ";
-            display: block;
-        }
-        .hero p span {
-            display: block;
-        }
         /* FLAG */
         .flag {
             position: absolute;
             top: 15px;
             right: 15px;
-            width: 180px; /* Noch größere Flagge */
+            width: 180px;
             border: 2px solid white;
             box-shadow: 0 0 8px rgba(0,0,0,0.3);
         }
@@ -84,13 +110,30 @@
             border-radius: 10px;
             padding: 25px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            transition: transform .2s ease;
+            transition: transform .2s ease, opacity 0.6s ease;
             text-decoration: none;
             color: inherit;
             border: 1px solid #ddd;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .module-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         .module-card:hover {
             transform: translateY(-4px);
+        }
+        /* SEARCH BAR */
+        #search {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
         /* MAP */
         #map {
@@ -112,54 +155,44 @@
         footer a:hover {
             text-decoration: underline;
         }
-        /* INTRO SECTION */
-        .intro {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: center;
-        }
-        .intro strong {
-            font-weight: 600;
-        }
-        /* IMAGE ATTRIBUTION ON HOVER */
-        .attribution {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.6);
+        /* BUTTON FOR DARK MODE */
+        #dark-mode-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #222;
             color: white;
-            padding: 10px;
+            border: none;
+            padding: 10px 15px;
             border-radius: 5px;
-            font-size: 0.85rem;
-            display: none; /* Standardmäßig ausgeblendet */
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
         }
-        .hero:hover .attribution {
-            display: block; /* Wird angezeigt, wenn man über das Bild fährt */
+        #dark-mode-toggle:hover {
+            background: #444;
         }
     </style>
 </head>
 <body>
+<!-- NAVIGATION -->
+<nav>
+    <ul>
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#modules">Modules</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+</nav>
 <!-- HERO -->
 <div class="hero">
     <img src="images/Flag_of_New_Hampshire.svg.png" alt="Flag of New Hampshire" class="flag">
     <div class="hero-overlay">
         <h1>Spatial History of New Hampshire</h1>
-        <p>
-            A digital exploration of the Granite State’s past<br>
-            <span>through cartography, GIS, and place‑based storytelling.</span>
-        </p>
-        <div class="attribution">
-            Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
-            https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
-            Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
-        </div>
+        <p>A digital exploration of the Granite State’s past<br>through cartography, GIS, and place‑based storytelling.</p>
     </div>
 </div>
 <!-- INTRO SECTION -->
-<div class="intro">
+<div id="intro" class="intro">
     Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes.  
     This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
     <br><br>
@@ -169,8 +202,10 @@
     This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.  
     Each module focuses on a different aspect of the state’s historical geography.
 </div>
+<!-- SEARCH BAR -->
+<input type="text" id="search" placeholder="Search modules...">
 <!-- MODULE GRID -->
-<section class="modules">
+<section id="modules" class="modules">
     <a href="modules/settlement.html" class="module-card">
         <h3>Settlement & Colonial Boundaries</h3>
         <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
@@ -196,6 +231,35 @@
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+    // Dark Mode Toggle
+    const toggleDarkMode = document.createElement('button');
+    toggleDarkMode.id = 'dark-mode-toggle';
+    toggleDarkMode.textContent = 'Toggle Dark Mode';
+    document.body.appendChild(toggleDarkMode);
+    toggleDarkMode.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+    // Search Functionality
+    const searchInput = document.querySelector('#search');
+    const modules = document.querySelectorAll('.module-card');
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        modules.forEach(module => {
+            const text = module.textContent.toLowerCase();
+            module.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    });
+    // Module Animation on Scroll
+    const cards = document.querySelectorAll('.module-card');
+    window.addEventListener('scroll', () => {
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                card.classList.add('visible');
+            }
+        });
+    });
+    // Leaflet Map
     const map = L.map('map').setView([44.0, -71.5], 7);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -208,7 +272,9 @@
 <footer>
     Spatial History of New Hampshire • Created by Simon Dominik Franzen  
     <br>
-    <a href="impressum.html">Impressum</a>
+    <a href="impressum.html">Impressum</a> | 
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="https://twitter.com" target="_blank">Twitter</a>
 </footer>
 </body>
 </html>
