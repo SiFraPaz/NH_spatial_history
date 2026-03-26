@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Spatial History of New Hampshire</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Google Fonts -->
     https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap
@@ -55,7 +55,7 @@
             padding: 20px;
         }
 
-        /* HOVER CREDITS */
+        /* CREDIT */
         .credit-bubble {
             position: absolute;
             bottom: 12px;
@@ -71,12 +71,11 @@
 
         .hero:hover .credit-bubble { opacity: 1; }
 
-        /* INTRO TEXT */
+        /* INTRO */
         .intro {
             max-width: 1000px;
             margin: 40px auto 20px;
             padding: 0 20px;
-            font-size: 1.15rem;
             line-height: 1.6;
             text-align: center;
         }
@@ -94,7 +93,7 @@
         .module-card {
             background: white;
             border-radius: 10px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
             border: 1px solid #ddd;
             text-decoration: none;
@@ -121,15 +120,12 @@
             background: #222;
             color: white;
             margin-top: 30px;
-            font-size: 1rem;
         }
 
         footer a {
             color: #bbb;
             text-decoration: none;
-            margin-left: 10px;
         }
-
     </style>
 </head>
 
@@ -137,7 +133,7 @@
 
 <!-- HERO -->
 <div class="hero">
-    images/Flag_of_New_Hampshire.svg.png
+    <img src="images/Flag_of_New_Hampshire.svg.png" class="flag" alt="New Hampshire Flag">
 
     <div class="credit-bubble">
         Image: Lake Winnipesaukee and the Ossipee Mountains — CC BY-SA 4.0<br>
@@ -150,46 +146,44 @@
     </div>
 </div>
 
-<!-- INTRO TEXT -->
+<!-- INTRO -->
 <div class="intro">
     Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes.
     This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
 
     <br><br>
-
     <strong>Spatial history</strong> examines how people interact with space — how borders, landscapes, mobility, settlement patterns, and environments shape human experience.
 
     <br><br>
-
     This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.
 </div>
 
-<!-- MODULE GRID -->
+<!-- MODULES -->
 <section class="modules">
 
-    modules/settlement.html
+    <a href="modules/settlement.html" class="module-card">
         <h3>Settlement & Colonial Boundaries</h3>
         <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
     </a>
 
-    modules/indigenous.html
+    <a href="modules/indigenous.html" class="module-card">
         <h3>Indigenous Geographies</h3>
         <p>Native land, mobility, early contact history and spatial patterns.</p>
     </a>
 
-    modules/demography.html
+    <a href="modules/demography.html" class="module-card">
         <h3>Demography & Migration</h3>
-        <p>Population landscapes, settlement clusters, and long‑term demographic change.</p>
+        <p>Population landscapes and long‑term demographic change.</p>
     </a>
 
-    modules/economy.html
+    <a href="modules/economy.html" class="module-card">
         <h3>Industry & Economy</h3>
         <p>The role of rivers, mills, and industrial corridors in shaping the state.</p>
     </a>
 
-    modules/environment.html
+    <a href="modules/environment.html" class="module-card">
         <h3>Environmental Change</h3>
-        <p>Reforestation, land‑use change, ecology, and conservation history.</p>
+        <p>Ecology, land‑use, and conservation history.</p>
     </a>
 
 </section>
@@ -198,29 +192,24 @@
 <div id="map"></div>
 
 <!-- Leaflet JS -->
-https://unpkg.com/leaflet@1.9.4/dist/leaflet.js</script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-    const map = L.map('map', {
-        zoomControl: true,
-        scrollWheelZoom: true
-    }).setView([44.0, -71.5], 7);
+    const map = L.map('map').setView([44.0, -71.5], 7);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    setTimeout(() => map.invalidateSize(), 300);
-
     L.marker([43.1939, -71.5724])
-        .addTo(map)
-        .bindPopup("New Hampshire — Spatial History Project");
+      .addTo(map)
+      .bindPopup("New Hampshire — Spatial History Project");
 </script>
 
 <footer>
-    Spatial History of New Hampshire • Created by Simon Dominik Franzen  
-    imprint.htmlImprint</a>
+    Spatial History of New Hampshire • Created by Simon D. Franzen —
+    <a href="imprint.html">Imprint</a>
 </footer>
 
 </body>
