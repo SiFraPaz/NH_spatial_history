@@ -5,10 +5,10 @@
     <title>Spatial History of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Fonts (correct embed!) -->
+    <!-- Google Fonts (correct!!) -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Leaflet CSS (correct embed!) -->
+    <!-- Leaflet CSS (correct!!) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <style>
@@ -55,7 +55,7 @@
             padding: 20px;
         }
 
-        /* CREDIT HOVER EFFECT */
+        /* HOVER CREDITS */
         .credit-bubble {
             position: absolute;
             bottom: 12px;
@@ -130,7 +130,6 @@
             text-decoration: none;
             margin-left: 10px;
         }
-
     </style>
 </head>
 
@@ -138,7 +137,7 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img src="images/Flag_of_New_Hampshire.svg.png" class="flag" alt="Flag of New Hampshire">
+    <img class="flag" src="images/Flag_of_New_Hampshire.svg.png" alt="New Hampshire Flag">
 
     <div class="credit-bubble">
         Image: Lake Winnipesaukee and the Ossipee Mountains — CC BY-SA 4.0<br>
@@ -170,27 +169,27 @@
 <!-- MODULE GRID -->
 <section class="modules">
 
-    <a href="modules/settlement.html" class="module-card">
+    modules/settlement.html
         <h3>Settlement & Colonial Boundaries</h3>
         <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
     </a>
 
-    <a href="modules/indigenous.html" class="module-card">
+    modules/indigenous.html
         <h3>Indigenous Geographies</h3>
         <p>Native land, mobility, early contact history and spatial patterns.</p>
     </a>
 
-    <a href="modules/demography.html" class="module-card">
+    modules/demography.html
         <h3>Demography & Migration</h3>
         <p>Population landscapes, settlement clusters, and long‑term demographic change.</p>
     </a>
 
-    <a href="modules/economy.html" class="module-card">
+    modules/economy.html
         <h3>Industry & Economy</h3>
         <p>The role of rivers, mills, and industrial corridors in shaping the state.</p>
     </a>
 
-    <a href="modules/environment.html" class="module-card">
+    modules/environment.html
         <h3>Environmental Change</h3>
         <p>Reforestation, land‑use change, ecology, and conservation history.</p>
     </a>
@@ -216,3 +215,15 @@
 
     setTimeout(() => map.invalidateSize(), 400);
 
+    L.marker([43.1939, -71.5724])
+        .addTo(map)
+        .bindPopup("New Hampshire — Spatial History Project");
+</script>
+
+<footer>
+    © Simon D. Franzen (2026)  
+    imprint.htmlImprint</a>
+</footer>
+
+</body>
+</html>
