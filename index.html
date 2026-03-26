@@ -28,7 +28,7 @@
         /* HEADER / HERO SECTION */
         .hero {
             height: 60vh;
-            background-image: url('Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg');
+            background-image: url('images/Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -54,12 +54,12 @@
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-top: 12px;
             max-width: 700px;
         }
 
-        /* FLAG (top right corner) */
+        /* FLAG */
         .flag {
             position: absolute;
             top: 15px;
@@ -94,6 +94,7 @@
             transform: translateY(-4px);
         }
 
+        /* MAP */
         #map {
             height: 420px;
             width: 100%;
@@ -110,9 +111,8 @@
 
         .attribution {
             text-align: center;
-            font-size: 0.8rem;
-            margin-top: 6px;
-            margin-bottom: 12px;
+            font-size: 0.85rem;
+            margin-top: 8px;
             color: #555;
         }
     </style>
@@ -122,16 +122,17 @@
 
 <!-- HERO -->
 <div class="hero">
-    <img src="Flag_of_New_Hampshire.svg.png" alt="Flag of New Hampshire" class="flagl History of New Hampshire</h1>
-        <p>A digital exploration of the Granite State’s past using historical cartography,
-           GIS data, and spatial storytelling.</p>
+    <img src="images/Flag_of_New_Hampshire.svg.png" class="flag" alt="Flag of New Hampshire">
+    <div class="hero-overlay">
+        <h1>Spatial History of New Hampshire</h1>
+        <p>A digital exploration of the Granite State’s past through cartography, GIS, and place‑based storytelling.</p>
     </div>
 </div>
 
 <div class="attribution">
-    Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons<br>
-    https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg — Flag of New Hampshire: Public Domain<br>
-    <a href="https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg" target="_blank">Source</a>
+    Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
+    https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
+    Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
 </div>
 
 <!-- MODULE GRID -->
@@ -139,7 +140,7 @@
 
     <a href="modules/settlement.html" class="module-card">
         <h3>Settlement & Colonial Boundaries</h3>
-        <p>How colonial land grants and early land divisions shaped New Hampshire.</p>
+        <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
     </a>
 
     <a href="modules/indigenous.html" class="module-card">
@@ -149,17 +150,17 @@
 
     <a href="modules/demography.html" class="module-card">
         <h3>Demography & Migration</h3>
-        <p>Census data, settlement clusters, and changing population landscapes.</p>
+        <p>Population landscapes, settlement clusters, and long‑term demographic change.</p>
     </a>
 
     <a href="modules/economy.html" class="module-card">
         <h3>Industry & Economy</h3>
-        <p>Waterpower, mills, river corridors, and industrial development.</p>
+        <p>The role of rivers, mills, and industrial corridors in shaping the state.</p>
     </a>
 
     <a href="modules/environment.html" class="module-card">
         <h3>Environmental Change</h3>
-        <p>Reforestation, land use change, ecology and conservation history.</p>
+        <p>Reforestation, land‑use change, ecology, and conservation history.</p>
     </a>
 
 </section>
@@ -183,7 +184,8 @@
 </script>
 
 <footer>
-    Spatial History of New Hampshire • Created by Simon D. Franzen
+    Spatial History of New Hampshire • Created by Simon Dominik Franzen
 </footer>
 
 </body>
+</html>
