@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>New Hampshire Timeline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        background: #f7f7f7;
+        font-family: "EB Garamond", serif;
+        color: #222;
+        font-size: 20px;
+    }
+    h1, h2, h3 {
+        font-family: "Cinzel", serif;
+        letter-spacing: 0.5px;
+    }
+
+    /* Navigation */
+    nav {
+        background: #222;
+        color: white;
+        padding: 12px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        margin-right: 20px;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Timeline Container */
+    .container {
+        max-width: 850px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .timeline {
+        position: relative;
+        margin: 40px auto;
+        padding-left: 40px;
+    }
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #4b5563;
+        border-radius: 2px;
+    }
+
+    .entry {
+        margin: 25px 0;
+        background: white;
+        border-left: 4px solid #2563eb;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease;
+    }
+    .entry.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .entry h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #1e3a8a;
+    }
+    .entry p {
+        margin-top: 5px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: #222;
+        color: white;
+        margin-top: 40px;
+    }
+
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="../index.html">← Back to Home</a>
+</nav>
+
+<div class="container">
+    <h1>Timeline of New Hampshire History</h1>
+    <p>
+        A chronological overview of key developments in the history of New Hampshire,
+        from early Indigenous presence to statehood and modern events.
+    </p>
+
+    <div class="timeline" id="timeline"></div>
+</div>
+
+<script>
+// Timeline data (shortened version)
+const events = [
+  { year: 1603, text: "Martin Pring explores the Piscataqua River." },
+  { year: 1618, text: "Severe epidemic reduces Indigenous coastal populations." },
+  { year: 1623, text: "First permanent European settlement at Odiorne’s Point (Rye)." },
+  { year: 1629, text: "John Mason names the region 'New Hampshire'." },
+  { year: 1679, text: "New Hampshire becomes a separate royal colony." },
+  { year: 1741, text: "Permanent separation from Massachusetts; own royal governor." },
+  { year: 1774, text: "Raid on Fort William & Mary — early armed rebellion." },
+  { year: 1776, text: "NH establishes an independent government." },
+  { year: 1788, text: "NH ratifies the U.S. Constitution as the 9th state." },
+  { year: 1808, text: "Concord becomes the state capital." },
+  { year: 1861, text: "New Hampshire fights for the Union in the Civil War." },
+  { year: 2003, text: "Collapse of the Old Man of the Mountain." }
+];
+
+const tl = document.getElementById("timeline");
+
+events.forEach(ev => {
+    const div = document.createElement("div");
+    div.className = "entry";
+    div.innerHTML = `<h3>${ev.year}</h3><p>${ev.text}</p>`;
+    tl.appendChild(div);
+});
+
+window.addEventListener("scroll", () => {
+    document.querySelectorAll(".entry").forEach(entry => {
+        const rect = entry.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+            entry.classList.add("visible");
+        }
+    });
+});
+</script>
+
+<footer>
+    Spatial History of New Hampshire • Timeline Module
+</footer>
+
+</body>
+</html>
