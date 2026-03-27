@@ -152,6 +152,7 @@
             max-width: 400px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-family: 'EB Garamond', serif; /* Schriftart angepasst */
         }
         /* MAP */
         #map {
@@ -237,7 +238,6 @@
     <h3>Timeline</h3>
     <p>An interactive chronological overview of New Hampshire’s key historical events.</p>
     </a>
-    
 </section>
 <div id="map"></div>
 <!-- Leaflet JS -->
@@ -269,6 +269,32 @@
         maxZoom: 19,
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
+    // GeoJSON für New Hampshire hinzufügen
+    const nhGeoJSON = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [-72.557247, 42.697040],
+                    [-70.710678, 42.697040],
+                    [-70.710678, 45.305802],
+                    [-72.557247, 45.305802],
+                    [-72.557247, 42.697040]
+                ]
+            ]
+        }
+    };
+    // Stil für die Umrisse von New Hampshire
+    const nhStyle = {
+        color: "#ff7800", // Orange Farbe
+        weight: 2,
+        opacity: 0.8,
+        fillColor: "#ffcc00", // Gelbe Füllfarbe
+        fillOpacity: 0.3
+    };
+    // GeoJSON-Layer zur Karte hinzufügen
+    L.geoJSON(nhGeoJSON, { style: nhStyle }).addTo(map);
 </script>
 <footer>
     Spatial History of New Hampshire • Created by Simon Dominik Franzen  
