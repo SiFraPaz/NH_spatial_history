@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Spatial History of New Hampshire</title>
+    <title>Spatial Histories of New Hampshire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
     <link rel="icon" href="https://raw.githubusercontent.com/SiFraPaz/NH_spatial_history/main/images/outline-nh.png" type="png">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <style>
         body {
             margin: 0;
@@ -80,42 +78,6 @@
             max-width: 700px;
             line-height: 1.6;
         }
-        /* FLAG */
-        .flag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 180px;
-            border: 2px solid white;
-            box-shadow: 0 0 8px rgba(0,0,0,0.3);
-        }
-        /* IMAGE ATTRIBUTION */
-        .attribution {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            display: none; /* Standardmäßig ausgeblendet */
-        }
-        .hero:hover .attribution {
-            display: block; /* Wird angezeigt, wenn man über das Bild fährt */
-        }
-        /* INTRO SECTION */
-        .intro {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: center;
-        }
-        .intro strong {
-            font-weight: 600;
-        }
         /* MODULE GRID */
         .modules {
             display: grid;
@@ -134,33 +96,37 @@
             text-decoration: none;
             color: inherit;
             border: 1px solid #ddd;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .module-card.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
         .module-card:hover {
             transform: translateY(-4px);
         }
-        /* SEARCH BAR */
-        #search {
-            display: block;
-            margin: 20px auto;
-            padding: 10px;
-            font-size: 1rem;
-            width: 80%;
-            max-width: 400px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'EB Garamond', serif; /* Schriftart angepasst */
+        /* RESOURCES SECTION */
+        .resources {
+            background: #f0f0f0;
+            padding: 40px;
+            text-align: center;
         }
-        /* MAP */
-        #map {
-            height: 420px;
-            width: 100%;
-            margin-top: 30px;
+        .resources h2 {
+            margin-bottom: 20px;
+        }
+        .resource-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .resource-button {
+            display: inline-block;
+            padding: 15px 25px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        .resource-button:hover {
+            background: #444;
         }
         footer {
             text-align: center;
@@ -184,126 +150,67 @@
     <ul>
         <li><a href="#intro">Home</a></li>
         <li><a href="#modules">Modules</a></li>
-        <li><a href="#map">Map</a></li>
+        <li><a href="#resources">Resources</a></li>
         <li><a href="impressum.html">Impressum</a></li>
     </ul>
 </nav>
 <!-- HERO -->
 <div class="hero">
-    <img src="images/Flag_of_New_Hampshire.svg.png" alt="Flag of New Hampshire" class="flag">
     <div class="hero-overlay">
-        <h1>Spatial History of New Hampshire</h1>
+        <h1>Spatial Histories of New Hampshire</h1>
         <p>A digital exploration of the Granite State’s past<br>through cartography, GIS, and place‑based storytelling.</p>
-        <div class="attribution">
-            Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
-            https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
-            Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
-        </div>
     </div>
 </div>
-<!-- INTRO SECTION -->
-<div id="intro" class="intro">
-    Many people associate the United States with California, New York, or Florida — regions that dominate global imagination and media landscapes.  
-    This project intentionally shifts attention toward a state that is far less prominent, yet historically rich and geographically distinctive: New Hampshire.
-    <br><br>
-    <strong>Spatial history</strong> examines how people interact with space — how borders, landscapes, mobility, settlement patterns, and environments shape human experience.  
-    We navigate space every day: through towns, along roads, across regions, and through the geographies that define our lives.
-    <br><br>
-    This website presents a multi‑module exploration of New Hampshire’s past through maps, GIS analysis, and narrative interpretation.  
-    Each module focuses on a different aspect of the state’s historical geography.
-</div>
-<!-- SEARCH BAR -->
-<input type="text" id="search" placeholder="Search modules...">
 <!-- MODULE GRID -->
 <section id="modules" class="modules">
-    <a href="modules/settlement.html" class="module-card">
-        <h3>Settlement & Colonial Boundaries</h3>
-        <p>How colonial town grants and early land divisions shaped New Hampshire.</p>
+    <a href="modules/modern_map.html" class="module-card">
+        <h3>A Modern Map of New Hampshire</h3>
+        <p>Explore a contemporary map of New Hampshire with interactive features.</p>
     </a>
-    <a href="modules/indigenous.html" class="module-card">
-        <h3>Indigenous Geographies</h3>
-        <p>Native land, mobility, early contact history and spatial patterns.</p>
+    <a href="modules/introduction.html" class="module-card">
+        <h3>An Introduction to Spatial History</h3>
+        <p>Learn about the principles and methods of spatial history.</p>
     </a>
-    <a href="modules/demography.html" class="module-card">
-        <h3>Demography & Migration</h3>
-        <p>Population landscapes, settlement clusters, and long‑term demographic change.</p>
+    <a href="modules/native_american.html" class="module-card">
+        <h3>Native American Spatial Histories</h3>
+        <p>Discover the spatial patterns and histories of Native American communities.</p>
     </a>
-    <a href="modules/economy.html" class="module-card">
-        <h3>Industry & Economy</h3>
-        <p>The role of rivers, mills, and industrial corridors in shaping the state.</p>
+    <a href="modules/shakers.html" class="module-card">
+        <h3>The Shakers of New Hampshire</h3>
+        <p>Examine the unique spatial and cultural legacy of the Shakers.</p>
     </a>
-    <a href="modules/environment.html" class="module-card">
-        <h3>Environmental Change</h3>
-        <p>Reforestation, land‑use change, ecology, and conservation history.</p>
+    <a href="modules/agriculture.html" class="module-card">
+        <h3>Agriculture and Farming</h3>
+        <p>Trace the evolution of farming and agricultural practices in New Hampshire.</p>
     </a>
-    <a href="timeline/index.html" class="module-card">
-    <h3>Timeline</h3>
-    <p>An interactive chronological overview of New Hampshire’s key historical events.</p>
+    <a href="modules/demographics.html" class="module-card">
+        <h3>Demographics</h3>
+        <p>Analyze population trends and demographic changes over time.</p>
+    </a>
+    <a href="modules/cultural_heritage.html" class="module-card">
+        <h3>Cultural Heritage</h3>
+        <p>Explore the cultural landmarks and traditions of New Hampshire.</p>
+    </a>
+    <a href="modules/names.html" class="module-card">
+        <h3>Names</h3>
+        <p>Investigate the origins and meanings of place names in New Hampshire.</p>
     </a>
 </section>
-<div id="map"></div>
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-    // Search Functionality
-    const searchInput = document.querySelector('#search');
-    const modules = document.querySelectorAll('.module-card');
-    searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase();
-        modules.forEach(module => {
-            const text = module.textContent.toLowerCase();
-            module.style.display = text.includes(query) ? 'block' : 'none';
-        });
-    });
-    // Module Animation on Scroll
-    const cards = document.querySelectorAll('.module-card');
-    window.addEventListener('scroll', () => {
-        cards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) {
-                card.classList.add('visible');
-            }
-        });
-    });
-    // Leaflet Map
-    const map = L.map('map').setView([44.0, -71.5], 7); // Fokus auf ganz New Hampshire
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-    // GeoJSON für New Hampshire hinzufügen
-    const nhGeoJSON = {
-        "type": "Feature",
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [-72.557247, 42.697040],
-                    [-70.710678, 42.697040],
-                    [-70.710678, 45.305802],
-                    [-72.557247, 45.305802],
-                    [-72.557247, 42.697040]
-                ]
-            ]
-        }
-    };
-    // Stil für die Umrisse von New Hampshire
-    const nhStyle = {
-        color: "#ff7800", // Orange Farbe
-        weight: 2,
-        opacity: 0.8,
-        fillColor: "#ffcc00", // Gelbe Füllfarbe
-        fillOpacity: 0.3
-    };
-    // GeoJSON-Layer zur Karte hinzufügen
-    L.geoJSON(nhGeoJSON, { style: nhStyle }).addTo(map);
-</script>
+<!-- RESOURCES SECTION -->
+<section id="resources" class="resources">
+    <h2>Resources</h2>
+    <div class="resource-buttons">
+        <a href="glossary.html" class="resource-button">Glossary</a>
+        <a href="resources.html" class="resource-button">Resources (e.g., EMMIT+)</a>
+        <a href="literature.html" class="resource-button">Literature on New Hampshire History</a>
+        <a href="contact.html" class="resource-button">Contact</a>
+    </div>
+</section>
 <footer>
-    Spatial History of New Hampshire • Created by Simon Dominik Franzen  
+    Spatial Histories of New Hampshire • Created by Simon Dominik Franzen  
     <br>
     <a href="impressum.html">Impressum</a> | 
-    <a href="privacy.html">Privacy Policy</a> | 
-    <a href="https://twitter.com" target="_blank">Twitter</a>
+    <a href="privacy.html">Privacy Policy</a>
 </footer>
 </body>
 </html>
