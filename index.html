@@ -78,6 +78,30 @@
             max-width: 700px;
             line-height: 1.6;
         }
+        /* FLAG */
+        .flag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 180px;
+            border: 2px solid white;
+            box-shadow: 0 0 8px rgba(0,0,0,0.3);
+        }
+        /* IMAGE ATTRIBUTION */
+        .attribution {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            display: none; /* Standardmäßig ausgeblendet */
+        }
+        .hero:hover .attribution {
+            display: block; /* Wird angezeigt, wenn man über das Bild fährt */
+        }
         /* MODULE GRID */
         .modules {
             display: grid;
@@ -156,9 +180,15 @@
 </nav>
 <!-- HERO -->
 <div class="hero">
+    <img src="images/Flag_of_New_Hampshire.svg.png" alt="Flag of New Hampshire" class="flag">
     <div class="hero-overlay">
         <h1>Spatial Histories of New Hampshire</h1>
         <p>A digital exploration of the Granite State’s past<br>through cartography, GIS, and place‑based storytelling.</p>
+        <div class="attribution">
+            Background image: <i>Lake Winnipesaukee and the Ossipee Mountains</i>, via Wikimedia Commons — CC BY‑SA 4.0<br>
+            https://commons.wikimedia.org/wiki/File:Lake_Winnipesaukee_and_the_Ossipee_Mountains.jpg<br>
+            Flag of New Hampshire: Public Domain — https://commons.wikimedia.org/wiki/File:Flag_of_New_Hampshire.svg
+        </div>
     </div>
 </div>
 <!-- MODULE GRID -->
