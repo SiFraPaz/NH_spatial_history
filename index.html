@@ -102,6 +102,30 @@
         .hero:hover .attribution {
             display: block; /* Wird angezeigt, wenn man über das Bild fährt */
         }
+        /* INTRO SECTION */
+        .intro {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .intro strong {
+            font-weight: 600;
+        }
+        /* SEARCH BAR */
+        #search {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'EB Garamond', serif;
+        }
         /* MODULE GRID */
         .modules {
             display: grid;
@@ -191,6 +215,12 @@
         </div>
     </div>
 </div>
+<!-- INTRO SECTION -->
+<div id="intro" class="intro">
+    <p><strong>Welcome!</strong> This website explores the spatial histories of New Hampshire through maps, GIS, and storytelling. Dive into the modules below to learn more about the Granite State’s unique past.</p>
+</div>
+<!-- SEARCH BAR -->
+<input type="text" id="search" placeholder="Search modules...">
 <!-- MODULE GRID -->
 <section id="modules" class="modules">
     <a href="modules/modern_map.html" class="module-card">
@@ -232,6 +262,7 @@
     <div class="resource-buttons">
         <a href="glossary.html" class="resource-button">Glossary</a>
         <a href="resources.html" class="resource-button">Resources (e.g., EMMIT+)</a>
+        <a href="geodata.html" class="resource-button">Geodata</a>
         <a href="literature.html" class="resource-button">Literature on New Hampshire History</a>
         <a href="contact.html" class="resource-button">Contact</a>
     </div>
@@ -242,5 +273,17 @@
     <a href="impressum.html">Impressum</a> | 
     <a href="privacy.html">Privacy Policy</a>
 </footer>
+<script>
+    // Search Functionality
+    const searchInput = document.querySelector('#search');
+    const modules = document.querySelectorAll('.module-card');
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        modules.forEach(module => {
+            const text = module.textContent.toLowerCase();
+            module.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    });
+</script>
 </body>
 </html>
